@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Projects from '../../components/projects/Projects.tsx';
+import FootballNationalAnalysisImg from '../../assets/football-national-analysis.jpg';
+import SalesAnalysisImg from '../../assets/sales-analysis.png';
+import TPBotaDeOroImg from '../../assets/bota-de-oro.png';
+
+const allProjects = [
+  {
+    id: '1',
+    title: 'Análisis Histórico de Partidos Internacionales',
+    description: 'VAnálisis básico de un dataset sobre selecciones nacionales de fútbol ',
+    image: FootballNationalAnalysisImg.src,
+    tags: ['Python', 'Pandas', 'Streamlit', 'Plotly', 'NumPy', 'Seaborn'],
+    link: 'https://github.com/alejotrenti/football-national-analysis'
+  },  
+  {
+    id: '2',
+    title: 'Analizador de Ventas Interactivo',
+    description: 'Una aplicación web interactiva construida con Python, Streamlit y Plotly, que permite analizar datos de ventas de manera visual y flexible.',
+    image: SalesAnalysisImg.src,
+    tags: ['Python', 'Pandas', 'PowerBi', 'Streamlit', 'Plotly'],
+    link: 'https://github.com/alejotrenti/sales-analysis'
+  },  
+  {
+    id: '3',
+    title: 'Trabajo integrador Jugador Promesa',
+    description: 'Como trabajo final de la materia "Introducción a Ciencia de Datos", desarrollamos un proyecto que analiza qué tan efectivos son los delanteros, comparando su rendimiento real con lo esperado',
+    image: TPBotaDeOroImg.src,
+    tags: ['R', 'ggplot'],
+    link: 'https://github.com/alejotrenti/bota-de-oro'
+  },
+  // ... más proyectos
+];
+
+const allTags = Array.from(new Set(allProjects.flatMap(project => project.tags)));
+---
+
+<Layout title="Alejo | Proyectos">
+  <main>
+    <!-- Monta el componente React -->
+    <Projects client:load projects={allProjects} allTags={allTags} />
+  </main>
+</Layout>

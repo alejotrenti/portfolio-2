@@ -1,0 +1,96 @@
+---
+import FootballNationalAnalysisImg from '../assets/football-national-analysis.jpg';
+import SalesAnalysisImg from '../assets/sales-analysis.png';
+import TPBotaDeOroImg from '../assets/bota-de-oro.png';
+---
+
+<section id="projects" class="max-w-6xl mx-auto px-4 py-20">
+    <!-- Encabezado minimalista -->
+    <div class="mb-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 dark:text-white">
+            Proyectos de <span class="text-cyan-500 dark:text-cyan-400">Data Science</span>
+        </h2>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Análisis, visualizaciones y modelos implementados con Python, R y herramientas especializadas.
+        </p>
+    </div>
+
+    <!-- Grid de proyectos -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Proyecto 1 - Análisis Histórico de Partidos Internacionales -->
+        <article class="group">
+            <a href="/projects/football-national-analysis" class="block h-full">
+                <div class="relative overflow-hidden rounded-lg mb-4 h-48">
+                    <img src={FootballNationalAnalysisImg.src} 
+                        alt="Análisis de selecciones nacionales de fútbol"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-white font-medium">Ver detalles →</span>
+                    </div>
+                </div>
+                <div class="px-1">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fab fa-python text-cyan-500 dark:text-cyan-400"></i>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">PYTHON, PANDAS, STREAMLIT</span>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white mb-2">Análisis Histórico de Partidos Internacionales</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Análisis básico de un dataset sobre selecciones nacionales de fútbol</p>
+                </div>
+            </a>
+        </article>
+
+        <!-- Proyecto 2 - Analizador de Ventas Interactivo -->
+        <article class="group">
+            <a href="/projects/sales-analysis" class="block h-full">
+                <div class="relative overflow-hidden rounded-lg mb-4 h-48">
+                    <img src={SalesAnalysisImg.src} 
+                        alt="Analizador de Ventas Interactivo"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-white font-medium">Ver detalles →</span>
+                    </div>
+                </div>
+                <div class="px-1">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fab fa-python text-cyan-500 dark:text-cyan-400"></i>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">PYTHON, STREAMLIT, PLOTLY</span>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white mb-2">Analizador de Ventas Interactivo</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Aplicación web interactiva para analizar datos de ventas de manera visual</p>
+                </div>
+            </a>
+        </article>
+
+        <!-- Proyecto 3 - Trabajo integrador Jugador Promesa -->
+        <article class="group">
+            <a href="/projects/bota-de-oro" class="block h-full">
+                <div class="relative overflow-hidden rounded-lg mb-4 h-48">
+                    <img src={TPBotaDeOroImg.src} 
+                        alt="Trabajo integrador Jugador Promesa"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-white font-medium">Ver detalles →</span>
+                    </div>
+                </div>
+                <div class="px-1">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fab fa-r-project text-cyan-500 dark:text-cyan-400"></i>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">R, GGPLOT2</span>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white mb-2">Trabajo integrador Jugador Promesa</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Análisis de efectividad de delanteros comparando rendimiento real vs esperado</p>
+                </div>
+            </a>
+        </article>
+    </div>
+
+    <!-- CTA minimalista -->
+    <div class="mt-20 text-center">
+        <a href="/projects" class="inline-flex items-center px-6 py-3 border border-cyan-500 text-cyan-500 dark:text-cyan-400 rounded-full hover:bg-cyan-500 hover:text-white transition-colors">
+            Ver todos los proyectos
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+        </a>
+    </div>
+</section>

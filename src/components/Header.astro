@@ -1,0 +1,190 @@
+---
+import Logo from './svgs/Logo.astro';
+---
+
+<header class="fixed top-0 w-full bg-white/80 dark:bg-slate-600 md:backdrop-blur-sm z-50 border-b border-gray-100 dark:border-gray-700 transition-colors">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
+    <!-- Logo y nombre -->
+    <div class="flex items-center gap-4">
+      <a href="/" class="flex items-center gap-3 group">
+        <Logo class="h-16 w-auto text-gray-900 dark:fill-white transition-colors" />
+        <div class="flex flex-col">
+          <span class="text-3xl font-medium text-gray-900 dark:text-white group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
+            Alejo
+          </span>
+          <span class="relative inline-block">
+            <span class="block group-hover:opacity-0 transition-opacity duration-300 text-gray-900 dark:text-white">IT technician</span>
+            <span class="absolute left-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-cyan-500  whitespace-nowrap">Data Science Developer</span>
+          </span>
+        </div>  
+      </a>
+    </div>
+
+    <!-- Navegación desktop -->
+    <nav class="hidden md:flex items-center gap-1">
+      <a href="/" class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
+        Inicio
+      </a>
+      <a href="/projects" class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
+        Proyectos
+      </a>
+      <a href="/about" class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
+        Sobre mí
+      </a>
+      <a href="/contact" class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
+        Contacto
+      </a>
+    </nav>
+
+    <!-- Controles (dark mode y mobile menu) -->
+    <div class="flex items-center gap-2">
+      <!-- Botón dark mode -->
+      <button id="theme-toggle" type="button" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+
+      <!-- Botón menú mobile -->
+      <button class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Menu">
+        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú mobile (se activa con JS) -->
+  <div class="md:hidden hidden fixed inset-0 bg-gray-900/80 dark:bg-gray-900/90 z-40 transition-opacity duration-300 opacity-0" id="mobile-menu-overlay"></div>
+  <div class="md:hidden hidden fixed top-0 right-0 w-64 h-full bg-white/95 dark:bg-gray-900/95 z-50 border-l border-gray-200 dark:border-gray-800 shadow-xl transform transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] translate-x-full" id="mobile-menu">
+    <!-- Logo y nombre en el menú mobile -->
+    <div class="p-6 pb-4 flex items-center gap-3 border-b border-gray-100 dark:border-gray-800">
+      <Logo class="h-12 w-auto text-gray-900 dark:fill-white" />
+      <div class="flex flex-col">
+        <span class="text-2xl font-medium text-gray-900 dark:text-white">Alejo</span>
+        <span class="text-gray-600 dark:text-gray-300">IT technician</span>
+        <span class="text-gray-600 dark:text-gray-300">Data Science Student</span>
+      </div>
+    </div>
+    
+    <div class="p-4 flex justify-end">
+      <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" id="close-mobile-menu">
+        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <nav class="px-4 pb-4 flex flex-col space-y-3">
+      <a href="/" class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
+        Inicio
+      </a>
+      <a href="/projects" class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
+        Proyectos
+      </a>
+      <a href="/about" class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
+        Sobre mí
+      </a>
+      <a href="/contact" class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
+        Contacto
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style is:inline>
+  #mobile-menu {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  #mobile-menu-overlay {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+</style>
+
+<script is:inline>
+  // Toggle dark/light mode (manteniendo tu código original)
+  var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+  var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    themeToggleLightIcon.classList.remove('hidden');
+  } else {
+    themeToggleDarkIcon.classList.remove('hidden');
+  }
+
+  themeToggleBtn.addEventListener('click', function() {
+    themeToggleDarkIcon.classList.toggle('hidden');
+    themeToggleLightIcon.classList.toggle('hidden');
+
+    if (localStorage.getItem('color-theme')) {
+      if (localStorage.getItem('color-theme') === 'light') {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      }
+    } else {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    }
+  });
+
+  // ... (tu código existente del theme toggle)
+
+   // Mobile menu functionality - Versión mejorada
+  const mobileMenuButton = document.querySelector('button[aria-label="Menu"]');
+  const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function openMobileMenu() {
+    // Mostrar overlay y empezar animación
+    mobileMenuOverlay.classList.remove('hidden');
+    mobileMenu.classList.remove('hidden');
+    
+    // Trigger reflow para que la animación funcione
+    void mobileMenuOverlay.offsetWidth;
+    void mobileMenu.offsetWidth;
+    
+    // Aplicar opacidad y transformación
+    mobileMenuOverlay.classList.remove('opacity-0');
+    mobileMenu.classList.remove('translate-x-full');
+    
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    // Iniciar animación de salida
+    mobileMenuOverlay.classList.add('opacity-0');
+    mobileMenu.classList.add('translate-x-full');
+    
+    // Ocultar después de la animación
+    setTimeout(() => {
+      mobileMenuOverlay.classList.add('hidden');
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  // Event listeners (mantener igual)
+  mobileMenuButton.addEventListener('click', openMobileMenu);
+  closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+  // Close menu when clicking on links
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+</script>

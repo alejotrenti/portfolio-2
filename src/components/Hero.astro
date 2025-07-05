@@ -1,0 +1,61 @@
+<!-- src/components/Hero.astro -->
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 mt-20 md:pt-48 ">
+  <div class="text-center md:text-left">
+    <!-- Título principal con acento cyan -->
+    <h1 class="text-4xl md:text-6xl font-bold mb-6 dark:text-white">
+      Hola, soy <span class="text-cyan-500 dark:text-cyan-400">Alejo</span>
+    </h1>
+    
+    <!-- Subtítulo descriptivo -->
+    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto md:mx-0">
+      Cientista de datos especializado en transformar información compleja en insights accionables.
+    </p>
+    
+    <!-- Botones de acción -->
+    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+      <a 
+        href="#projects" 
+        class="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full transition-colors duration-300 flex items-center"
+      >
+        Ver mis proyectos
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </a>
+      
+        <a 
+        href="/contact" 
+        class="px-6 py-3 border border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-white dark:hover:bg-cyan-400 dark:hover:text-black rounded-full transition-colors duration-300"
+        >
+        Contactame
+        </a>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Animación sutil para el título */
+  h1 span {
+    position: relative;
+    display: inline-block;
+  }
+  
+  h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  h1:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>
