@@ -90,7 +90,7 @@ const Projects: React.FC<Props> = ({ projects, allTags }) => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 gap-y-20">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}
