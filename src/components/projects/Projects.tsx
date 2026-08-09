@@ -50,7 +50,7 @@ const Projects: React.FC<Props> = ({ projects, allTags }) => {
             Portafolio
           </span>
           <h2 className="text-4xl md:text-5xl font-light dark:text-white mb-6">
-            Proyectos <span className="font-medium">Destacados</span>
+            Mis <span className="font-medium">Proyectos</span>
           </h2>
           <div className="w-32 h-px bg-gray-200 dark:bg-slate-600 mx-auto"></div>
         </div>

@@ -2,49 +2,66 @@
 import Layout from '../../layouts/Layout.astro';
 import Projects from '../../components/projects/Projects.tsx';
 
+
 const allProjects = [
   {
     id: '1',
     title: 'Análisis Histórico de Partidos Internacionales',
-    description: 'VAnálisis básico de un dataset sobre selecciones nacionales de fútbol ',
+    description: 'Análisis básico de un dataset sobre selecciones nacionales de fútbol.',
     image: "assets/football-national-analysis.jpg",
-    tags: ['Python', 'Pandas', 'Streamlit', 'Plotly', 'NumPy', 'Seaborn'],
+    tags: ['Python', 'Pandas', 'Streamlit'],
     link: 'https://github.com/alejotrenti/football-national-analysis'
-  },  
+  },
   {
     id: '2',
     title: 'Analizador de Ventas Interactivo',
-    description: 'Una aplicación web interactiva construida con Python, Streamlit y Plotly, que permite analizar datos de ventas de manera visual y flexible.',
+    description: 'Aplicación web interactiva para analizar datos de ventas de manera visual y flexible.',
     image: "assets/sales-analysis.png",
-    tags: ['Python', 'Pandas', 'PowerBi', 'Streamlit', 'Plotly'],
+    tags: ['Python', 'Pandas', 'Power BI'],
     link: 'https://github.com/alejotrenti/sales-analysis'
-  },  
+  },
   {
     id: '3',
     title: 'Trabajo integrador Jugador Promesa',
-    description: 'Como trabajo final de la materia "Introducción a Ciencia de Datos", desarrollamos un proyecto que analiza qué tan efectivos son los delanteros, comparando su rendimiento real con lo esperado',
+    description: 'Proyecto de Introducción a Ciencia de Datos que analiza la efectividad de delanteros comparando su rendimiento real con el esperado.',
     image: "assets/bota-de-oro.png",
-    tags: ['R', 'ggplot'],
+    tags: ['R', 'ggplot2'],
     link: 'https://github.com/alejotrenti/bota-de-oro'
   },
-    {
+  {
     id: '4',
     title: 'Análisis del Consumo de Energía Eléctrica en Argentina (2005–2024)',
-    description: 'Análisis exploratorio (EDA) del consumo de energía eléctrica en Argentina entre 2005-2024, utilizando datos oficiales de CAMMESA e INDEC',
+    description: 'Análisis exploratorio del consumo de energía eléctrica en Argentina entre 2005 y 2024, utilizando datos oficiales de CAMMESA e INDEC.',
     image: "assets/consumo-powerbi.png",
-    tags: ['Python', 'Pandas', 'PowerBi', 'Google Colab', 'Matplotlib'],
+    tags: ['Python', 'Pandas', 'Power BI'],
     link: 'https://github.com/alejotrenti/consumo-energia-argentina'
   },
   {
     id: '5',
     title: 'Análisis del Mercado Laboral Argentino (2017–2025)',
-    description: 'Análisis exploratorio de datos (EDA) del mercado laboral argentino entre 2017 y 2025, utilizando microdatos y series oficiales de la Encuesta Permanente de Hogares (EPH – INDEC).',
+    description: 'Análisis exploratorio del mercado laboral argentino entre 2017 y 2025, utilizando microdatos y series oficiales de la EPH – INDEC.',
     image: "assets/mercado_dashboard.png",
-    tags: ['Python', 'Pandas', 'PowerBi', 'Google Colab', 'Matplotlib'],
+    tags: ['Python', 'Pandas', 'Power BI'],
     link: 'https://github.com/alejotrenti/mercado-laboral-argentina'
   },
-  // ... más proyectos
+  {
+    id: '6',
+    title: 'Future Skills Engine',
+    description: 'Plataforma de datos que integra múltiples fuentes para analizar tendencias tecnológicas e identificar habilidades emergentes.',
+    image: "assets/future.png",
+    tags: ['Python', 'PostgreSQL', 'Airflow', 'Docker'],
+    link: 'https://github.com/alejotrenti/future-skills-engine'
+  },
+  {
+    id: '7',
+    title: 'Predicción de Parkinson con Machine Learning',
+    description: 'Modelo de clasificación basado en datos biomédicos para predecir la presencia de la enfermedad de Parkinson.',
+    image: "assets/parkinson.png",
+    tags: ['Python', 'Pandas', 'Scikit-learn'],
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7473849247327645697/'
+  },
 ];
+
 
 const allTags = Array.from(new Set(allProjects.flatMap(project => project.tags)));
 ---
