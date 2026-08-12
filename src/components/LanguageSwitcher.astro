@@ -1,0 +1,26 @@
+---
+import { locales, localeLabels } from '../lib/i18n';
+
+const { currentLocale } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const pathWithoutLocale = currentPath.replace(/^\/(es|en)/, '');
+
+const getLocalizedPath = (locale: string) => {
+  return `/${locale}${pathWithoutLocale || ''}`;
+};
+---
+
+<nav class="flex gap-2">
+  {locales.map((locale) => (
+    <a
+      href={getLocalizedPath(locale)}
+      class={locale === currentLocale
+        ? 'px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-semibold underline'
+        : 'px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-semibold opacity-75 hover:opacity-100'}
+    >
+      {localeLabels[locale]}
+    </a>
+  ))}
+</nav>

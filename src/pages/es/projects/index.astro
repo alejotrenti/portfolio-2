@@ -1,0 +1,95 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Projects from '../../../components/projects/Projects.tsx';
+import es from '../../../content/locales/es.json';
+
+const currentLocale = 'es';
+
+// Definimos la interfaz para los proyectos
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+}
+
+// Los proyectos ahora solo tienen datos estructurales (sin textos hardcodeados)
+const allProjects: Project[] = [
+  {
+    id: '1',
+    title: es.projects.football.title,
+    description: es.projects.football.description,
+    image: "/assets/football-national-analysis.jpg",
+    tags: ['Python', 'Pandas', 'Streamlit'],
+    link: 'https://github.com/alejotrenti/football-national-analysis'
+  },
+  {
+    id: '2',
+    title: es.projects.sales.title,
+    description: es.projects.sales.description,
+    image: "/assets/sales-analysis.png",
+    tags: ['Python', 'Pandas', 'Power BI'],
+    link: 'https://github.com/alejotrenti/sales-analysis'
+  },
+  {
+    id: '3',
+    title: es.projects.botaDeOro.title,
+    description: es.projects.botaDeOro.description,
+    image: "/assets/bota-de-oro.png",
+    tags: ['R', 'ggplot2'],
+    link: 'https://github.com/alejotrenti/bota-de-oro'
+  },
+  {
+    id: '4',
+    title: es.projects.energia.title,
+    description: es.projects.energia.description,
+    image: "/assets/consumo-powerbi.png",
+    tags: ['Python', 'Pandas', 'Power BI'],
+    link: 'https://github.com/alejotrenti/consumo-energia-argentina'
+  },
+  {
+    id: '5',
+    title: es.projects.mercado.title,
+    description: es.projects.mercado.description,
+    image: "/assets/mercado_dashboard.png",
+    tags: ['Python', 'Pandas', 'Power BI'],
+    link: 'https://github.com/alejotrenti/mercado-laboral-argentina'
+  },
+  {
+    id: '6',
+    title: es.projects.futureSkills.title,
+    description: es.projects.futureSkills.description,
+    image: "/assets/future.png",
+    tags: ['Python', 'PostgreSQL', 'Airflow', 'Docker'],
+    link: 'https://github.com/alejotrenti/future-skills-engine'
+  },
+  {
+    id: '7',
+    title: es.projects.parkinson.title,
+    description: es.projects.parkinson.description,
+    image: "/assets/parkinson.png",
+    tags: ['Python', 'Pandas', 'Scikit-learn'],
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7473849247327645697/'
+  },
+];
+
+const allTags = Array.from(new Set(allProjects.flatMap(project => project.tags)));
+---
+
+<Layout
+  title="Alejo | Proyectos"
+  currentLocale={currentLocale}
+  headerText={es.navigation}
+  footerText={es.navigation}
+>
+  <main>
+    <Projects
+      client:load
+      projects={allProjects}
+      allTags={allTags}
+      projectsText={es.projects}
+    />
+  </main>
+</Layout>

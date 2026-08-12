@@ -7,15 +7,34 @@ import MercadoLaboralArgImg from '../assets/mercado_dashboard.png';
 // import FootballNationalAnalysisImg from '../assets/football-national-analysis.jpg';
 // import SalesAnalysisImg from '../assets/sales-analysis.png';
 // import TPBotaDeOroImg from '../assets/bota-de-oro.png';
+
+interface Props {
+  projectsHomeText: {
+    title1: string;
+    title2: string;
+    subtitle: string;
+    project1Title: string;
+    project1Subtitle: string;
+    project2Title: string;
+    project2Subtitle: string;
+    project3Title: string;
+    project3Subtitle: string;
+    cardDetails: string;
+    projectsButton: string;
+  };
+  currentLocale: 'es' | 'en';
+}
+
+const { projectsHomeText, currentLocale } = Astro.props;
 ---
 
 <section id="projects" class="max-w-6xl mx-auto px-4 py-20">
     <div class="mb-16 text-center">
         <h2 class="text-3xl md:text-5xl  mb-4 dark:text-white">
-            Proyectos de <span class="text-cyan-500 dark:text-cyan-400">Data Science</span>
+            {projectsHomeText.title1} <span class="text-cyan-500 dark:text-cyan-400">{projectsHomeText.title2}</span>
         </h2>
         <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Proyectos personales y académicos enfocados en análisis de datos, machine learning e ingeniería de datos.
+            {projectsHomeText.subtitle}
         </p>
     </div>
 
@@ -27,15 +46,15 @@ import MercadoLaboralArgImg from '../assets/mercado_dashboard.png';
                         alt="Dashboard interactivo de predicción de habilidades"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <span class="text-white font-medium">Ver detalles →</span>
+                        <span class="text-white font-medium">{projectsHomeText.cardDetails} →</span>
                     </div>
                 </div>
                 <div class="px-1">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-xs text-gray-500 dark:text-gray-400">PYTHON · DOCKER · POSTGRESQL· AIRFLOW · STREAMLIT</span>
                     </div>
-                    <h3 class="text-xl font-bold dark:text-white mb-2">Future Skills Engine</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">Plataforma de datos para analizar tendencias tecnológicas e identificar habilidades emergentes a partir de múltiples fuentes.</p>
+                    <h3 class="text-xl font-bold dark:text-white mb-2">{projectsHomeText.project1Title}</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">{projectsHomeText.project1Subtitle}</p>
                 </div>
             </a>
         </article>
@@ -47,15 +66,15 @@ import MercadoLaboralArgImg from '../assets/mercado_dashboard.png';
                         alt="Análisis de datos para detección de Parkinson"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <span class="text-white font-medium">Ver detalles →</span>
+                        <span class="text-white font-medium">{projectsHomeText.cardDetails} →</span>
                     </div>
                 </div>
                 <div class="px-1">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-xs text-gray-500 dark:text-gray-400">PYTHON · SCIKIT-LEARN · PANDAS</span>
                     </div>
-                    <h3 class="text-xl font-bold dark:text-white mb-2">Predicción de Parkinson con Machine Learning</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">Modelo de clasificación basado en datos biomédicos para predecir la presencia de la enfermedad de Parkinson.</p>
+                    <h3 class="text-xl font-bold dark:text-white mb-2">{projectsHomeText.project2Title}</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">{projectsHomeText.project2Subtitle}</p>
                 </div>
             </a>
         </article>
@@ -67,23 +86,23 @@ import MercadoLaboralArgImg from '../assets/mercado_dashboard.png';
                         alt="Dashboard del mercado laboral argentino"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <span class="text-white font-medium">Ver detalles →</span>
+                        <span class="text-white font-medium">{projectsHomeText.cardDetails} →</span>
                     </div>
                 </div>
                 <div class="px-1">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-xs text-gray-500 dark:text-gray-400">PYTHON · PANDAS · SCIKIT-LEARN · POWER-BI</span>
                     </div>
-                    <h3 class="text-xl font-bold dark:text-white mb-2">Mercado Laboral Argentino</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">Dashboard interactivo con indicadores clave del mercado laboral argentino utilizando datos del INDEC</p>
+                    <h3 class="text-xl font-bold dark:text-white mb-2">{projectsHomeText.project3Title}</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">{projectsHomeText.project3Subtitle}</p>
                 </div>
             </a>
         </article>
     </div>
 
     <div class="mt-20 text-center">
-        <a href="/projects" class="inline-flex items-center px-6 py-3 border border-cyan-500 text-cyan-500 dark:text-cyan-400 rounded-full hover:bg-cyan-500 hover:text-white transition-colors">
-            Ver todos mis proyectos
+        <a href={`/${currentLocale}/projects`} class="inline-flex items-center px-6 py-3 border border-cyan-500 text-cyan-500 dark:text-cyan-400 rounded-full hover:bg-cyan-500 hover:text-white transition-colors">
+            {projectsHomeText.projectsButton}
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>

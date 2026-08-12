@@ -1,0 +1,116 @@
+{
+  "site": {
+    "title": "Portfolio de Alejo",
+    "description": "Portfolio de ciencia de datos"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "profile": "Estudiante de Ciencia de Datos · Técnico en Informática"
+  },
+  "sections": {
+    "hero": {
+      "intro": "Hola, soy ",
+      "description": "Estudiante de Ciencia de Datos con formación técnica en informática, enfocado en análisis, ingeniería de datos y machine learning.",
+      "projectsButton": "Ver mis proyectos",
+      "contactButton": "Contactame"
+    },
+    "skills": {
+      "title1": "Habilidades",
+      "title2": "Técnicas",
+      "subtitle": "Tecnologías y herramientas que utilizo actualmente en mis proyectos y aprendizaje.",
+      "focusTitle": "Enfoque",
+      "focus": [
+      "Análisis de datos",
+      "Ingeniería de datos",
+      "Aprendizaje automático",
+      "Estadística"
+    ],
+      "toolsTitle": "Herramientas / Técnologias"
+    },
+    "projectsHome":{
+      "title1": "Proyectos de",
+      "title2": "Data Science",
+      "subtitle": "Proyectos personales y académicos enfocados en análisis de datos, machine learning e ingeniería de datos.",
+      "project1Title": "Future Skills Engine",
+      "project1Subtitle": "Plataforma de datos para analizar tendencias tecnológicas e identificar habilidades emergentes a partir de múltiples fuentes.",
+      "project2Title": "Detección de Parkinson con ML",
+      "project2Subtitle": "Modelo de clasificación basado en datos biomédicos para predecir la presencia de la enfermedad de Parkinson.",
+      "project3Title": "Mercado Laboral Argentino",
+      "project3Subtitle": "Dashboard interactivo con indicadores clave del mercado laboral argentino utilizando datos del INDEC.",
+      "cardDetails": "Ver más detalles",
+      "projectsButton": "Ver todos mis proyectos"
+     }
+  },
+  "about": {
+    "title1": "Sobre",
+    "title2": "mí",
+    "description1": "Soy estudiante de la Licenciatura en Ciencia de Datos y Técnico en Informática.",
+    "description2": "Actualmente estoy desarrollando experiencia práctica en análisis de datos, ingeniería de datos y machine learning a través de proyectos personales y académicos.",
+    "contactButton": "Contáctame",
+    "cvButton": "Descargar CV",
+    "educationTitle": "Formación Académica",
+    "dataScience": {
+      "title": "Licenciatura en Ciencia de Datos",
+      "date": "09/2024 – Actualidad",
+      "institution": "Universidad Nacional de San Martín",
+      "description": "Formación en estadística, programación, bases de datos y análisis de datos, con aprendizaje progresivo en machine learning y visualización."
+    },
+    "informatics": {
+      "title": "Técnico en Informática",
+      "date": "02/2017 – 12/2024",
+      "institution": "Instituto San Leonardo Murialdo",
+      "description": "Formación técnica en programación, hardware, software, bases de datos y redes."
+    }
+  },
+  "projects": {
+    "portfolio": "Portafolio",
+    "title1": "Mis",
+    "title2": "Proyectos",
+    "searchPlaceholder": "Buscar proyectos...",
+    "clearFilters": "Limpiar filtros",
+    "noResults": "No se encontraron proyectos con los filtros seleccionados",
+    "football": {
+      "title": "Análisis Histórico de Partidos Internacionales",
+      "description": "Análisis básico de un dataset sobre selecciones nacionales de fútbol."
+    },
+    "sales": {
+      "title": "Analizador de Ventas Interactivo",
+      "description": "Aplicación web interactiva para analizar datos de ventas de manera visual y flexible."
+    },
+    "botaDeOro": {
+      "title": "Trabajo integrador Jugador Promesa",
+      "description": "Proyecto de Introducción a Ciencia de Datos que analiza la efectividad de delanteros comparando su rendimiento real con el esperado."
+    },
+    "energia": {
+      "title": "Análisis del Consumo de Energía Eléctrica en Argentina (2005–2024)",
+      "description": "Análisis exploratorio del consumo de energía eléctrica en Argentina entre 2005 y 2024, utilizando datos oficiales de CAMMESA e INDEC."
+    },
+    "mercado": {
+      "title": "Análisis del Mercado Laboral Argentino (2017–2025)",
+      "description": "Análisis exploratorio del mercado laboral argentino entre 2017 y 2025, utilizando microdatos y series oficiales de la EPH – INDEC."
+    },
+    "futureSkills": {
+      "title": "Future Skills Engine",
+      "description": "Plataforma de datos que integra múltiples fuentes para analizar tendencias tecnológicas e identificar habilidades emergentes."
+    },
+    "parkinson": {
+      "title": "Detección de Parkinson con ML",
+      "description": "Modelo de clasificación basado en datos biomédicos para predecir la presencia de la enfermedad de Parkinson."
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "tu@email.com",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Escribí tu mensaje...",
+    "submitButton": "Enviar mensaje",
+    "emailAction": "Envíame un correo",
+    "locationTitle": "Ubicación",
+    "socialTitle": "Conectemos"
+  }
+}

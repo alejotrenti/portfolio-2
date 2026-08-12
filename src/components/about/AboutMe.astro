@@ -1,3 +1,32 @@
+---
+interface Props {
+  aboutText: {
+    title1: string;
+    title2: string;
+    description1: string;
+    description2: string;
+    contactButton: string;
+    cvButton: string;
+    educationTitle: string;
+    dataScience: {
+      title: string;
+      date: string;
+      institution: string;
+      description: string;
+    };
+    informatics: {
+      title: string;
+      date: string;
+      institution: string;
+      description: string;
+    };
+  };
+  currentLocale: 'es' | 'en';
+}
+
+const { aboutText, currentLocale } = Astro.props;
+---
+
 <section id="about" class="py-20 transition-colors mt-20">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row gap-12 items-center">
@@ -26,35 +55,33 @@
 
       <div class="md:w-1/2">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 dark:text-white">
-          Sobre <span class="text-cyan-500 dark:text-cyan-400">mí</span>
+          {aboutText.title1} <span class="text-cyan-500 dark:text-cyan-400">{aboutText.title2}</span>
         </h2>
         
         <div class="space-y-4 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
           <p>
-            Soy estudiante de la <strong class="dark:text-white">Licenciatura en Ciencia de Datos</strong> 
-            y <strong class="dark:text-white">Técnico en Informática</strong>.
+            {aboutText.description1}
           </p>
           
           <p>
-            Actualmente estoy desarrollando experiencia práctica en análisis de datos, 
-            ingeniería de datos y machine learning a través de proyectos personales y académicos.
+            {aboutText.description2}
           </p>
         </div>
 
         <!-- Acciones -->
         <div class="flex flex-wrap gap-4 mt-8">
           <a 
-            href="/contact" 
+            href={`/${currentLocale}/contact`} 
             class="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full transition-colors duration-300 text-sm font-medium"
           >
-            Contactame
+            {aboutText.contactButton}
           </a>
           <a 
             href="/cv.pdf" 
             download
             class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors duration-300 text-sm font-medium"
           >
-            Descargar CV
+            {aboutText.cvButton}
           </a>
         </div>
       </div>
@@ -62,8 +89,8 @@
   </div>
 
   <div id="timeline" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <h2 class="text-3xl  text-center mb-16 dark:text-white">
-      Formación Académica</span>
+    <h2 class="text-3xl text-center mb-16 dark:text-white">
+      {aboutText.educationTitle}
     </h2>
     
     <ol class="relative border-s border-cyan-500/30 dark:border-cyan-400/30">
@@ -73,14 +100,14 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
           </svg>
         </span>
-        <h3 class="mb-1 text-xl font-semibold text-gray-900 dark:text-white">Licenciatura en Ciencia de Datos</h3>
+        <h3 class="mb-1 text-xl font-semibold text-gray-900 dark:text-white">{aboutText.dataScience.title}</h3>
         <div class="flex flex-wrap items-center gap-x-2 mb-2">
-          <time class="text-sm font-medium text-cyan-500 dark:text-cyan-400">09/2024 – Actualidad</time>
+          <time class="text-sm font-medium text-cyan-500 dark:text-cyan-400">{aboutText.dataScience.date}</time>
           <span class="text-gray-400 hidden sm:inline">•</span>
-          <span class="text-sm text-gray-600 dark:text-gray-400">Universidad Nacional de San Martín</span>
+          <span class="text-sm text-gray-600 dark:text-gray-400">{aboutText.dataScience.institution}</span>
         </div>
         <p class="text-gray-600 dark:text-gray-300">
-          Formación en estadística, programación, bases de datos y análisis de datos, con aprendizaje progresivo en machine learning y visualización.
+          {aboutText.dataScience.description}
         </p>
       </li>
       
@@ -90,14 +117,14 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
           </svg>
         </span>
-        <h3 class="mb-1 text-xl font-semibold text-gray-900 dark:text-white">Técnico en Informática</h3>
+        <h3 class="mb-1 text-xl font-semibold text-gray-900 dark:text-white">{aboutText.informatics.title}</h3>
         <div class="flex flex-wrap items-center gap-x-2 mb-2">
-          <time class="text-sm font-medium text-cyan-500 dark:text-cyan-400">02/2017 – 12/2024</time>
+          <time class="text-sm font-medium text-cyan-500 dark:text-cyan-400">{aboutText.informatics.date}</time>
           <span class="text-gray-400 hidden sm:inline">•</span>
-          <span class="text-sm text-gray-600 dark:text-gray-400">Instituto San Leonardo Murialdo</span>
+          <span class="text-sm text-gray-600 dark:text-gray-400">{aboutText.informatics.institution}</span>
         </div>
         <p class="text-gray-600 dark:text-gray-300">
-          Formación técnica en programación, hardware, software, bases de datos y redes.
+          {aboutText.informatics.description}
         </p>
       </li>
     </ol>

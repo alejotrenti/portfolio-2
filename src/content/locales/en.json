@@ -1,0 +1,116 @@
+{
+  "site": {
+    "title": "Alejo's Portfolio",
+    "description": "Data science portfolio"
+  },
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "profile": "Data Science Student · IT Technician"
+  },
+  "sections": {
+    "hero": {
+      "intro": "Hi, I'm ",
+      "description": "Data Science student with a background in IT, focused on analytics, data engineering, and machine learning.",
+      "projectsButton": "View my projects",
+      "contactButton": "Contact me"
+    },
+    "skills": {
+      "title1": "Technical",
+      "title2": "Skills",
+      "subtitle": "Technologies and tools I currently use in my projects and learning.",
+      "focusTitle": "Focus areas",
+      "focus": [
+        "Data analysis",
+        "Data engineering",
+        "Machine learning",
+        "Statistics"
+      ],
+      "toolsTitle": "Tools / Technologies"
+    },
+    "projectsHome": {
+      "title1": "Data Science",
+      "title2": "Projects",
+      "subtitle": "Personal and academic projects focused on data analysis, machine learning, and data engineering.",
+      "project1Title": "Future Skills Engine",
+      "project1Subtitle": "Data platform that analyzes technology trends and identifies emerging skills from multiple sources.",
+      "project2Title": "Parkinson Detection with ML",
+      "project2Subtitle": "Classification model based on biomedical data to predict Parkinson's disease.",
+      "project3Title": "Argentine Labor Market",
+      "project3Subtitle": "Interactive dashboard with key indicators of the Argentine labor market using INDEC data.",
+      "cardDetails": "View details",
+      "projectsButton": "See all my projects"
+    }
+  },
+  "about": {
+    "title1": "About",
+    "title2": "me",
+    "description1": "I'm a Data Science student and IT Technician.",
+    "description2": "I'm currently gaining hands-on experience in data analysis, data engineering, and machine learning through personal and academic projects.",
+    "contactButton": "Contact me",
+    "cvButton": "Download CV",
+    "educationTitle": "Education",
+    "dataScience": {
+      "title": "Bachelor's in Data Science",
+      "date": "09/2024 – Present",
+      "institution": "Universidad Nacional de San Martín",
+      "description": "Training in statistics, programming, databases, and data analysis, with progressive learning in machine learning and visualization."
+    },
+    "informatics": {
+      "title": "IT Technician",
+      "date": "02/2017 – 12/2024",
+      "institution": "Instituto San Leonardo Murialdo",
+      "description": "Technical training in programming, hardware, software, databases, and networks."
+    }
+  },
+  "projects": {
+    "portfolio": "Portfolio",
+    "title1": "My",
+    "title2": "Projects",
+    "searchPlaceholder": "Search projects...",
+    "clearFilters": "Clear filters",
+    "noResults": "No projects found with the selected filters",
+    "football": {
+      "title": "Historical Analysis of International Matches",
+      "description": "Basic analysis of a dataset on national football teams."
+    },
+    "sales": {
+      "title": "Interactive Sales Analyzer",
+      "description": "Interactive web application for visual and flexible sales data analysis."
+    },
+    "botaDeOro": {
+      "title": "Integrated Project: Golden Boot",
+      "description": "Introduction to Data Science project analyzing striker effectiveness by comparing actual and expected performance."
+    },
+    "energia": {
+      "title": "Electricity Consumption Analysis in Argentina (2005–2024)",
+      "description": "Exploratory analysis of electricity consumption in Argentina between 2005 and 2024, using official CAMMESA and INDEC data."
+    },
+    "mercado": {
+      "title": "Argentine Labor Market Analysis (2017–2025)",
+      "description": "Exploratory analysis of the Argentine labor market between 2017 and 2025, using microdata and official EPH – INDEC series."
+    },
+    "futureSkills": {
+      "title": "Future Skills Engine",
+      "description": "Data platform that integrates multiple sources to analyze technology trends and identify emerging skills."
+    },
+    "parkinson": {
+      "title": "Parkinson Detection with ML",
+      "description": "Classification model based on biomedical data to predict Parkinson's disease."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@email.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message...",
+    "submitButton": "Send message",
+    "emailAction": "Send me an email",
+    "locationTitle": "Location",
+    "socialTitle": "Let's connect"
+  }
+}

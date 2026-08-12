@@ -1,12 +1,24 @@
 ---
 import Logo from './svgs/Logo.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  headerText: {
+    home: string;
+    projects: string;
+    about: string;
+    contact: string;
+  };
+  currentLocale: 'es' | 'en';
+}
+
+const { headerText, currentLocale } = Astro.props;
 ---
 
 <header class="fixed top-0 w-full bg-white/80 dark:bg-slate-600 md:backdrop-blur-sm z-50 border-b border-gray-100 dark:border-gray-700 transition-colors">
   <div class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
-    <!-- Logo y nombre -->
     <div class="flex items-center gap-4">
-      <a href="/" class="flex items-center gap-3 group">
+      <a href={`/${currentLocale}`} class="flex items-center gap-3 group">
         <Logo class="h-16 w-auto text-gray-900 dark:fill-white transition-colors" />
         <div class="flex flex-col">
           <span class="text-3xl font-medium text-gray-900 dark:text-white group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
@@ -14,30 +26,32 @@ import Logo from './svgs/Logo.astro';
           </span>
           <span class="relative inline-block">
             <span class="block group-hover:opacity-0 transition-opacity duration-300 text-gray-900 dark:text-white">IT technician</span>
-            <span class="absolute left-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-cyan-500  whitespace-nowrap">Data Science Developer</span>
+            <span class="absolute left-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-cyan-500  whitespace-nowrap">Data Science Student</span>
           </span>
         </div>  
       </a>
     </div>
 
-    <!-- Navegación desktop -->
     <nav class="hidden md:flex items-center gap-1">
-      <a href="/" class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
-        Inicio
+      <a href={`/${currentLocale}`} class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
+        {headerText.home}
       </a>
-      <a href="/projects" class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
-        Proyectos
+      <a href={`/${currentLocale}/projects`} class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
+        {headerText.projects}
       </a>
-      <a href="/about" class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
-        Sobre mí
+      <a href={`/${currentLocale}/about`} class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
+        {headerText.about}
       </a>
-      <a href="/contact" class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
-        Contacto
+      <a href={`/${currentLocale}/contact`} class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors font-medium">
+        {headerText.contact}
       </a>
     </nav>
 
-    <!-- Controles (dark mode y mobile menu) -->
     <div class="flex items-center gap-2">
+      <!-- Selector de idioma: solo desktop -->
+      <div class="hidden md:block">
+        <LanguageSwitcher currentLocale={currentLocale} />
+      </div>
       <!-- Botón dark mode -->
       <button id="theme-toggle" type="button" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
@@ -48,7 +62,6 @@ import Logo from './svgs/Logo.astro';
         </svg>
       </button>
 
-      <!-- Botón menú mobile -->
       <button class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Menu">
         <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -57,10 +70,8 @@ import Logo from './svgs/Logo.astro';
     </div>
   </div>
 
-  <!-- Menú mobile (se activa con JS) -->
   <div class="md:hidden hidden fixed inset-0 bg-gray-900/80 dark:bg-gray-900/90 z-40 transition-opacity duration-300 opacity-0" id="mobile-menu-overlay"></div>
   <div class="md:hidden hidden fixed top-0 right-0 w-64 h-full bg-white/95 dark:bg-gray-900/95 z-50 border-l border-gray-200 dark:border-gray-800 shadow-xl transform transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] translate-x-full" id="mobile-menu">
-    <!-- Logo y nombre en el menú mobile -->
     <div class="p-6 pb-4 flex items-center gap-3 border-b border-gray-100 dark:border-gray-800">
       <Logo class="h-12 w-auto text-gray-900 dark:fill-white" />
       <div class="flex flex-col">
@@ -79,18 +90,22 @@ import Logo from './svgs/Logo.astro';
     </div>
     
     <nav class="px-4 pb-4 flex flex-col space-y-3">
-      <a href="/" class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
-        Inicio
+      <a href={`/${currentLocale}`} class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
+        {headerText.home}
       </a>
-      <a href="/projects" class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
-        Proyectos
+      <a href={`/${currentLocale}/projects`} class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
+        {headerText.projects}
       </a>
-      <a href="/about" class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
-        Sobre mí
+      <a href={`/${currentLocale}/about`} class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
+        {headerText.about}
       </a>
-      <a href="/contact" class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
-        Contacto
+      <a href={`/${currentLocale}/contact`} class="px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors font-medium">
+        {headerText.contact}
       </a>
+
+      <div class="border-t border-gray-200 dark:border-gray-800 pt-4 mt-2">
+        <LanguageSwitcher currentLocale={currentLocale} />
+      </div>
     </nav>
   </div>
 </header>

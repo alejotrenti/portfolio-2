@@ -1,55 +1,59 @@
 ---
 import Logo from './svgs/Logo.astro';
+
+interface Props {
+  footerText: {
+    home: string;
+    projects: string;
+    about: string;
+    contact: string;
+    profile: string;
+  };
+  currentLocale: 'es' | 'en';
+}
+
+const { footerText, currentLocale } = Astro.props;
 ---
 
 <footer class="bg-white dark:bg-slate-600 transition-colors border-t border-gray-200 dark:border-gray-700">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Logo y descripción -->
       <div class="md:col-span-2">
-        <a href="/" class="inline-flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity">
+        <a href={`/${currentLocale}`} class="inline-flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity">
           <Logo class="h-8 w-auto fill-gray-900 dark:fill-white" />
           <span class="text-xl font-semibold text-gray-900 dark:text-white">Alejo Trenti</span>
         </a>
         <p class="text-gray-600 dark:text-gray-400 max-w-md text-sm leading-relaxed">
-          Estudiante de Ciencia de Datos · Técnico en Informática
+          {footerText.profile}
         </p>
       </div>
 
-      <!-- Enlaces rápidos -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-2">
-          Navegación
-        </h3>
         <ul class="space-y-2.5">
           <li>
-            <a href="/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-              Inicio
+            <a href={`/${currentLocale}`} class="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
+              {footerText.home}
             </a>
           </li>
           <li>
-            <a href="/projects" class="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-              Proyectos
+            <a href={`/${currentLocale}/projects`} class="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
+              {footerText.projects}
             </a>
           </li>
           <li>
-            <a href="/about" class="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-              Sobre Mi
+            <a href={`/${currentLocale}/about`} class="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
+              {footerText.about}
             </a>
           </li>
           <li>
-            <a href="/contact" class="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-              Contacto
+            <a href={`/${currentLocale}/contact`} class="text-sm text-gray-600 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
+              {footerText.contact}
             </a>
           </li>
         </ul>
       </div>
 
-      <!-- Redes sociales -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-4">
-          Conecta
-        </h3>
         <div class="flex space-x-4">
           <a 
             href="https://www.linkedin.com/in/alejo-trenti-99aa572bb/" 

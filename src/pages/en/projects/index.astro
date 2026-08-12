@@ -1,0 +1,94 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Projects from '../../../components/projects/Projects.tsx';
+import en from '../../../content/locales/en.json';
+
+const currentLocale = 'en';
+
+// Definimos la interfaz para los proyectos
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+}
+
+const allProjects: Project[] = [
+  {
+    id: '1',
+    title: en.projects.football.title,
+    description: en.projects.football.description,
+    image: "/assets/football-national-analysis.jpg",
+    tags: ['Python', 'Pandas', 'Streamlit'],
+    link: 'https://github.com/alejotrenti/football-national-analysis'
+  },
+  {
+    id: '2',
+    title: en.projects.sales.title,
+    description: en.projects.sales.description,
+    image: "/assets/sales-analysis.png",
+    tags: ['Python', 'Pandas', 'Power BI'],
+    link: 'https://github.com/alejotrenti/sales-analysis'
+  },
+  {
+    id: '3',
+    title: en.projects.botaDeOro.title,
+    description: en.projects.botaDeOro.description,
+    image: "/assets/bota-de-oro.png",
+    tags: ['R', 'ggplot2'],
+    link: 'https://github.com/alejotrenti/bota-de-oro'
+  },
+  {
+    id: '4',
+    title: en.projects.energia.title,
+    description: en.projects.energia.description,
+    image: "/assets/consumo-powerbi.png",
+    tags: ['Python', 'Pandas', 'Power BI'],
+    link: 'https://github.com/alejotrenti/consumo-energia-argentina'
+  },
+  {
+    id: '5',
+    title: en.projects.mercado.title,
+    description: en.projects.mercado.description,
+    image: "/assets/mercado_dashboard.png",
+    tags: ['Python', 'Pandas', 'Power BI'],
+    link: 'https://github.com/alejotrenti/mercado-laboral-argentina'
+  },
+  {
+    id: '6',
+    title: en.projects.futureSkills.title,
+    description: en.projects.futureSkills.description,
+    image: "/assets/future.png",
+    tags: ['Python', 'PostgreSQL', 'Airflow', 'Docker'],
+    link: 'https://github.com/alejotrenti/future-skills-engine'
+  },
+  {
+    id: '7',
+    title: en.projects.parkinson.title,
+    description: en.projects.parkinson.description,
+    image: "/assets/parkinson.png",
+    tags: ['Python', 'Pandas', 'Scikit-learn'],
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7473849247327645697/'
+  },
+];
+
+const allTags = Array.from(new Set(allProjects.flatMap(project => project.tags)));
+---
+
+<Layout
+  title="Alejo | Projects"
+  currentLocale={currentLocale}
+  headerText={en.navigation}
+  footerText={en.navigation}
+>
+  <main>
+    <Projects
+      client:load
+      projects={allProjects}
+      allTags={allTags}
+      projectsText={en.projects}
+    />
+  </main>
+</Layout>

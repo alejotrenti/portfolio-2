@@ -1,0 +1,20 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Contact from '../../../components/contact/Contact.astro';
+import en from '../../../content/locales/en.json';
+
+const currentLocale = 'en';
+---
+
+<Layout 
+  title="Alejo | Contact"
+  currentLocale={currentLocale}
+  headerText={en.navigation}
+  footerText={en.navigation}
+>
+  <main>
+    <Contact 
+      contactText={en.contact}    
+    />
+  </main>
+</Layout>

@@ -1,0 +1,21 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import AboutMe from '../../../components/about/AboutMe.astro';
+import en from '../../../content/locales/en.json';
+
+const currentLocale = 'en';
+---
+
+<Layout
+  title="Alejo | About"
+  currentLocale={currentLocale}
+  headerText={en.navigation}
+  footerText={en.navigation}
+>
+  <main>
+    <AboutMe 
+      aboutText={en.about}
+      currentLocale={currentLocale}
+    />
+  </main>
+</Layout>

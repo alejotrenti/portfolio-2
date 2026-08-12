@@ -1,38 +1,48 @@
+---
+interface Props {
+  skillText: {
+    title1: string;
+    title2: string;
+    subtitle: string;
+    focusTitle: string;
+    toolsTitle: string;
+    focus: string[];
+  };
+}
+
+const { skillText } = Astro.props;
+---
+
+
+
 <section id="skills" class="py-20 bg-white dark:bg-slate-600 transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-16 text-center">
       <h1 class="text-2xl md:text-5xl mb-4 dark:text-white">
-        Habilidades <span class="text-cyan-500 dark:text-cyan-400">Técnicas</span>
+        {skillText.title1} <span class="text-cyan-500 dark:text-cyan-400">{skillText.title2}</span>
       </h1>
 
       <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-        Tecnologías y herramientas que utilizo actualmente en mis proyectos y aprendizaje.
+        {skillText.subtitle}
       </p>
     </div>
     <div class="grid md:grid-cols-2 gap-12 md:gap-16">
       <div>
         <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-6">
-          Enfoque
+          {skillText.focusTitle}
         </h2>
-        <div class="flex flex-wrap gap-3">
+      <div class="flex flex-wrap gap-3">
+        {skillText.focus.map((focus) => (
           <span class="px-3 py-1.5 bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-md text-sm border border-cyan-200 dark:border-cyan-800">
-            Análisis de datos
+            {focus}
           </span>
-          <span class="px-3 py-1.5 bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-md text-sm border border-cyan-200 dark:border-cyan-800">
-            Ingeniería de datos
-          </span>
-          <span class="px-3 py-1.5 bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-md text-sm border border-cyan-200 dark:border-cyan-800">
-            Aprendizaje automático
-          </span>
-          <span class="px-3 py-1.5 bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-md text-sm border border-cyan-200 dark:border-cyan-800">
-            Estadística
-          </span>
-        </div>
+        ))}
+      </div>
       </div>
 
       <div>
         <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-300 mb-6">
-          Herramientas / Técnologias
+          {skillText.toolsTitle}
         </h2>
         <div class="flex flex-wrap gap-2">
           <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md text-sm">
