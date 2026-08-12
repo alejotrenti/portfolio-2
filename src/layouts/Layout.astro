@@ -1,6 +1,7 @@
 ---
 interface Props {
 	title: string;
+	description: string;
 	currentLocale: 'es' | 'en';
 	headerText: {
 		home: string;
@@ -19,7 +20,7 @@ interface Props {
 }
 
 
-const { title, currentLocale, headerText, footerText} = Astro.props;
+const { title, description, currentLocale, headerText, footerText} = Astro.props;
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -28,10 +29,20 @@ import Footer from '../components/Footer.astro';
 <html lang={currentLocale}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Portfolio de ciencia de datos con proyectos de análisis, visualización y machine learning usando Python, R y herramientas como Pandas, Scikit-learn y Power BI.">
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
 		<meta name="generator" content={Astro.generator} />
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:image" content={`${Astro.url.origin}/og-image.png`} />
+
+
 		<title>{title}</title>
 		<script>
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -42,10 +53,14 @@ import Footer from '../components/Footer.astro';
 			}
 		</script>
 	</head>
-	<body class="bg-[#F4F4F4] dark:bg-gray-700 min-h-screen">
-		<Header headerText={headerText} currentLocale={currentLocale}/>
+	<body class="bg-[#F4F4F4] dark:bg-gray-700 min-h-screen flex flex-col">
+	<Header headerText={headerText} currentLocale={currentLocale} />
+
+	<div class="flex-1">
 		<slot />
-		<Footer footerText={footerText} currentLocale={currentLocale}/>
+	</div>
+
+	<Footer footerText={footerText} currentLocale={currentLocale} />
 	</body>
 </html>
 <style is:global>
